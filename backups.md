@@ -7,9 +7,9 @@ Here come some general notes on backups. Nobody likes to talk about them. And yo
 To copy my photos directory to the backup USB drive, use `rsync` like so:
 
 ```
-rsync -av --delete --log-file=./my_log.txt --progress /some/source/dir/ /some/dest/dir
+rsync -av --ignore-existing --log-file=./my_log.txt --progress /some/source/dir/ /some/dest/dir
 ```
 
 * `-a`: archive mode
 * `-v`, `--progress`: add verbosity, maybe not needed
-* `--delete`: makes sure destination has only the things being sent by sender, deletes the rest. Aka, direct replica
+* `--ignore-existing`: skip updating files that exist on receiver
